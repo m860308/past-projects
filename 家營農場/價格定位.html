@@ -1,0 +1,334 @@
+<html>
+<body>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="/jquery/jquery-1.11.1.min.js"></script>
+<style>
+  body {
+      font-family: Microsoft JhengHei;
+  }
+  /*sidenav*/
+  .sidenav {
+      height: 100%;
+      width: 200px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      padding-top: 20px;
+  }
+
+  .sidenav a {
+      padding: 6px 6px 6px 32px;
+      text-decoration: none;
+      font-size: 24px;
+      color: #F8F8FF;
+      display: block;
+  }
+
+  .sidenav a:hover {
+      color: #B0C4DE;
+  }
+
+  .main {
+      margin-left: 200px; /* Same as the width of the sidenav */
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  /*近期資訊*/
+  .counter-test ul,
+  .counter-test li {
+    list-style: none;
+    font-size: 16px;
+
+  }
+
+  .list1 {
+    counter-reset: count
+  }
+
+  .list1 li {
+    position: relative;
+    box-sizing: border-box;
+    margin-top: 6px;
+    line-height: 30px;
+    padding-left: 40px;
+    background: #F0F8FF;
+    color: #333;
+    overflow: hidden
+  }
+
+  .list1 li:before {
+    content: counter(count);
+    counter-increment: count;
+    background: #00BFFF;
+    color: #333;
+    line-height: 300px;
+    height: 25px;
+    width: 25px;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    left: -6px;
+    top: -4px;
+    border: 7px solid #fff;
+  }
+</style>
+
+<div class="sidenav">
+  <a href="#info">近期資訊</a>
+  <a href="#cost">營區費用</a>
+  <a href="#intro">營區說明</a>
+  <a href="#unsub">營區退訂</a>
+  <a href="#floor">營區平面圖</a>
+</div>
+
+<div class="main" id="info">
+  <h2 style="text-align:center;font-size:18pt; border: 0px solid; border-radius: 15px; background-color:#B0C4DE; color:#fff; width:130px;">近期資訊</h2>
+  
+  <!--近期資訊-->
+  <div class="counter-test">
+    <ul class="list1">
+      <li>08/22  營區全面開放參觀預約。</li>
+      <li>08/25  全新遊憩設施完工，歡迎體驗。</li>
+      <li>08/25  即日起至 2016/12/31 ， facebook打卡上傳照片，優惠折扣100元</li>
+      <li>08/30  美麗秋涼露營趣，歡迎全家來體驗農場生活。</li>
+    </ul>
+  </div>
+</div>
+<hr style="color:#818181; opacity:0.2; ">
+<div class="main" id="cost">
+  <h2 style="text-align:center;font-size:18pt; border: 0px solid; border-radius: 15px; background-color:#B0C4DE; color:#fff; width:130px;">營區費用</h2>
+  <img style="width:600px; " src="http://ecloud.ewang.com.tw/userUpload/images/tomato/tb02.png" alt="">
+</div>
+<hr style="color:#818181; opacity:0.2; ">  
+<div class="main" id="intro">
+  <h2 style="text-align:center;font-size:18pt; border: 0px solid; border-radius: 15px; background-color:#B0C4DE; color:#fff; width:130px;">營區說明</h2>
+  <div style="font-size: 16px;">
+        <b><ul>
+            <li style="font-size: 14px;">訂位專線: 0921-592593、0921-592587 (每日預訂時間 : 08:00~22:00。)</li>
+            <li style="font-size: 14px;">為節省顧客付費及退費麻煩，一律現場收費。</li>
+            <li style="font-size: 14px;">進場時間15:00、退場時間次日13:00以前。</li>
+            <li style="font-size: 14px;">晚上 22:00 後，盡量不喧嘩影響他人休息。</li>
+            <li style="font-size: 14px;">有烤肉炊事平台，水電設備(110v插頭)、水槽等，熱水24小時供應。</li>
+            <li style="font-size: 14px;">離開時隨手做好垃圾分類後放至指定地點。</li>
+        </ul></b>
+        <p>家營農場各項說明，含收費，進場，露營公約等，請訂位露友務必詳讀</p>
+        <div>
+            <div>
+                <p style="padding: 0 10px;"><b>▲營位說明：</b><a id="a1" href="javascript:;" onclick="change()">Read More</a></p>
+                <div id="d1" style="display: none; padding: 0 0 10px 30px;">
+                    <p>目前營位容量如下：</p>
+                    <div style="padding: 0 10px;">
+                    <p>A區  &nbsp;草地區 &nbsp;8帳</p>
+                    <p>B區  &nbsp;櫻花草地區  &nbsp;5帳</p>
+                    <p>C區  &nbsp;頂鵬區  &nbsp;7帳</p>
+                    </div>
+                    <p style="font-size: 14px; padding: 0 20px;"><img src="http://ecloud.ewang.com.tw/userUpload/images/tomato/triangle.png" style="height: 14px; max-width: 100%;"><b>以上訂位時會盡量依照營友所求，並將同行露友排在同區，惟經營團隊考量園區整體營位分配，或是草皮健康情況，保有最後調整權利，並會徵求您的同意，感謝！</b></p>
+                </div>
+                <script>
+                var isShow = false;
+                function change() {
+                    if(!isShow) {
+                        isShow = true;
+                        document.getElementById('d1').style.display='';
+                        document.getElementById('a1').innerText = "Close";
+                    }
+                    else {
+                        isShow = false;
+                        document.getElementById('d1').style.display='none';
+                        document.getElementById('a1').innerText = "Read More";
+                    }			
+                }
+                </script>
+            </div>
+            
+            <div>
+                <p style="padding: 0 10px;"><b>▲進退場時間說明：</b><a id="a2" href="javascript:;" onclick="change2()">Read More</a></p>
+                <div id="d2" style="display: none; padding: 0 0 10px 30px;">
+                    <img src="http://ecloud.ewang.com.tw/userUpload/images/tomato/price_explantion.png" style="height: 30px; max-width: 100%; padding: 0 0 0 160px;">
+                    <div>
+                        <div style="display: inline-block; padding: 10px;"><p>平日與一般假日</p></div>
+                        <div style="display: inline-block; vertical-align:middle; padding: 5px 13px;"><center><p>p.m.1:00</p></center></div>
+                        <div style="display: inline-block; vertical-align:middle; padding: 5px 20px;"><center><p>p.m.12:00</p></center></div>
+                    </div>
+                    <div>
+                        <div style="display: inline-block;"><p>三天以上連續假日</p></div>
+                        <div style="display: inline-block; vertical-align:middle; padding: 5px 13px;"><center><p>p.m.2:00</p></center></div>
+                        <div style="display: inline-block; vertical-align:middle; padding: 5px 20px;"><center><p>p.m.12:00</p></center></div>
+                    </div>
+                    <p style="font-size: 14px; padding: 0 60px; margin: 0px;"><img src="http://ecloud.ewang.com.tw/userUpload/images/tomato/triangle.png" style="height: 14px; max-width: 100%;"><b>連續假期首日視營位安排狀況，如前一晚無帳可提早到10：00進場，但必須提前以私訊確認</b></p>
+                    <img src="http://ecloud.ewang.com.tw/userUpload/images/tomato/line.png" style="height: 10px; max-width: 100%;padding: 0 25px;">
+                    <p style="font-size: 14px; padding: 0 30px; margin: 0px;"><img src="http://ecloud.ewang.com.tw/userUpload/images/tomato/triangle.png" style="height: 14px; max-width: 100%;"><b>夜衝說明：如果您預定假日第一天或連續假日第一天露營，您可以在前一天下午6:00後進場，這樣是加收500元，提醒您，假日或連續假日當天不論幾點進場，都無夜衝優惠哦！</b></p>
+                </div>
+                <script>
+                var isShow = false;
+                function change2() {
+                    if(!isShow) {
+                        isShow = true;
+                        document.getElementById('d2').style.display='';
+                        document.getElementById('a2').innerText = "Close";
+                    }
+                    else {
+                        isShow = false;
+                        document.getElementById('d2').style.display='none';
+                        document.getElementById('a2').innerText = "Read More";
+                    }			
+                }
+                </script>
+            </div>
+            
+            <div>
+                <p style="padding: 0 10px;"><b>▲訂位原則：</b><a id="a3" href="javascript:;" onclick="change3()">Read More</a></p>
+                <div id="d3" style="display: none; padding: 0 0 0 30px;">
+                    <p>訂位時盡量如營友的希望，營主會視團體情況調整，讓同一團體的露友能在一起，包埸以先付訂金者優先排序。</p>
+                    <div style="display: inline-block;"><p><span class="glyphicon glyphicon-earphone"></span>訂位專線：</p></div>
+                    <div style="display: inline-block; vertical-align:middle; padding: 5px 0;">
+                    <p>強哥(營長): 0921-592-593</p>
+                    <p>農場主人: 0921-592-587</p>
+                    </div>
+                </div>
+                <script>
+                var isShow = false;
+                function change3() {
+                    if(!isShow) {
+                        isShow = true;
+                        document.getElementById('d3').style.display='';
+                        document.getElementById('a3').innerText = "Close";
+                    }
+                    else {
+                        isShow = false;
+                        document.getElementById('d3').style.display='none';
+                        document.getElementById('a3').innerText = "Read More";
+                    }			
+                }
+                </script>
+            </div>
+            
+            <div>
+                <P style="padding: 0 10px;"><b>▲收費原則：</b><a id="a4" href="javascript:;" onclick="change4()">Read More</a></P>
+                <div id="d4" style="display: none; padding: 0 0 10px 30px;">
+                    <div>
+                        <div style="display: inline-block;padding: 0 10px;"><p>平日（週一～五）</p></div>
+                        <div style="display: inline-block; vertical-align:middle; padding: 5px 10px;"><center><p>A、B區</p><p>C區</p></center></div>
+                        <div style="display: inline-block; vertical-align:middle; padding: 5px 15px;"><p>每帳700</p><p>每帳900</p></div>
+                    </div>
+                    <div>
+                        <div style="display: inline-block;"><p>一般及連續假期假日</p></div>
+                        <div style="display: inline-block; vertical-align:middle; padding: 5px 10px;"><center><p>A、B區</p><p>C區</p></center></div>
+                        <div style="display: inline-block; vertical-align:middle; padding: 5px 10px;"><center><p>每帳800</p><p>每帳1,000</p></center></div>
+                    </div>
+                    <p style="font-size: 14px; padding: 0 60px; margin: 0px;"><img src="http://ecloud.ewang.com.tw/userUpload/images/tomato/triangle.png" style="height: 14px; max-width: 100%;"><b>夜衝500，規定詳如上述，平日夜衝亦為500</b></p>
+                    <img src="http://ecloud.ewang.com.tw/userUpload/images/tomato/line.png" style="height: 10px; max-width: 100%;padding: 0 25px;">
+                    <p style="font-size: 14px; padding: 0 30px; margin: 0px;"><img src="http://ecloud.ewang.com.tw/userUpload/images/tomato/triangle.png" style="height: 14px; max-width: 100%;"><b>一帳以5人為限，含一房一廳一車位，超出人數每人加收200</b></p>
+                </div>
+                <script>
+                var isShow = false;
+                function change4() {
+                    if(!isShow) {
+                        isShow = true;
+                        document.getElementById('d4').style.display='';
+                        document.getElementById('a4').innerText = "Close";
+                    }
+                    else {
+                        isShow = false;
+                        document.getElementById('d4').style.display='none';
+                        document.getElementById('a4').innerText = "Read More";
+                    }			
+                }
+                </script>
+            </div>
+            
+            <div>
+                <p style="padding: 0 10px;"><b>▲訂金支付原則：</b><a id="a5" href="javascript:;" onclick="change5()">Read More</a></p>
+                <div id="d5" style="display: none; padding: 0 0  10px 30px;">
+                    <p>訂金支付為總價一半，當收到您的訂金後方確認訂位手續完成。</p>
+                    <p>訂金支付：各位露友請務必小心，由於詐騙集團猖獗，園區目前提供的訂金轉入帳戶如下：</p>
+                    <p style="padding:0 20px;"><i class="fa fa-bank"></i>轉入銀行：元大銀行 高雄分行，代號806</p>
+                    <p style="padding:0 20px;"><i class="fa fa-edit"></i>帳號：21102770234826</p>
+                    <p style="font-size: 14px; padding: 0 30px;"><img src="http://ecloud.ewang.com.tw/userUpload/images/tomato/triangle.png" style="height: 14px; max-width: 100%;"><b>如果您接到任何電話或是簡訊，以任何理由要求您將錢匯入其他帳戶，必定有異，請勿上當哦！</b></p>
+                </div>
+                <script>
+                var isShow = false;
+                function change5() {
+                    if(!isShow) {
+                        isShow = true;
+                        document.getElementById('d5').style.display='';
+                        document.getElementById('a5').innerText = "Close";
+                    }
+                    else {
+                        isShow = false;
+                        document.getElementById('d5').style.display='none';
+                        document.getElementById('a5').innerText = "Read More";
+                    }			
+                }
+                </script>
+            </div>
+            
+            <div>
+                <p style="padding: 0 10px;"><b>▲家營農場露營區公約：</b><a id="a6" href="javascript:;" onclick="change6()">Read More</a></p>
+                <div id="d6" style="display: none; padding: 0 0 10px 30px;">
+                    <p>1.為維護園區安全，進出營區請減速慢行並特別注意小朋友。</p>
+                    <p>2.攜帶寵物露營，大小便煩請隨手處理，以維護其他露友權益。</p>
+                    <p>3.營區草皮維護不易，營友車輛請勿開上草皮，停放車輛時，請依各區停車場指示停車，車內或個人貴重物品請妥善保管，園區不負賠償責任。</p>
+                    <p>4.營區草皮維護不易，如需生火，煩請自備離地30公分烤架或焚火台，不便之處敬請見諒。</p>
+                    <p>5.營區內的石頭為造景用，請勿任意搬動。</p>
+                    <p>6.為維護環境，菸蒂請勿落地。</p>
+                    <p>7.化妝室內之馬桶及小便池請勿丟入雜物，以確保暢通。</p>
+                    <p>8.營區內的電源插座僅提供小電補光用，切勿使用 重耗電器材(例如:電暖爐,電磁爐,重耗電咖啡機)。</p>
+                    <p>9.晚上10:00以後請勿大聲喧嘩；晚上10:00至翌日早上07.00為管制時間，禁止車輛進出。</p>
+                    <p>10.營區圍籬外為他人私有地，嚴禁擅闖有機農場摘果，以免被告；此外，未經他人允許，請勿擅自進入他人營位。</p>
+                    <p>11.請勿任意搬動營區內設施並愛惜公物(含花草樹木)，如需採果或從事任何須採集植物的活動，請務必先洽營主。</p>
+                    <p>12.山區取水不易，請愛惜資源並節約用水，沙坑遊戲後請用旁邊水龍頭清洗，並提醒小朋友盡量不要把沙子帶出或灑出沙坑外。</p>
+                    <p>13.煩請露友離開前請將各種丟棄物依照類別確實分類，垃圾放置於垃圾桶內，回收物品請稍微沖洗乾淨後放入回收桶，廚餘請倒入廚餘桶。</p>
+                    <p>14.兒童戲水區需大人陪同才安全喔!!!</p>
+                    <p style="font-size: 14px; padding: 0 10px;"><img src="http://ecloud.ewang.com.tw/userUpload/images/tomato/triangle.png" style="height: 14px; max-width: 100%;"><b>以上為家營農場公約與注意事項，為維護露友權益，請務必配合，如有重大違規經勸導不聽者，營主有退費請出園區的權利，請大家共同珍惜山上和諧的空氣，享受悠閒又有品質的露營趣!</b></p>
+                </div>
+                <script>
+                var isShow = false;
+                function change6() {
+                    if(!isShow) {
+                        isShow = true;
+                        document.getElementById('d6').style.display='';
+                        document.getElementById('a6').innerText = "Close";
+                    }
+                    else {
+                        isShow = false;
+                        document.getElementById('d6').style.display='none';
+                        document.getElementById('a6').innerText = "Read More";
+                    }			
+                }
+                </script>
+            </div>
+            
+            <p>上載各項說明家營農場經營團隊得視營運狀況擁有調整與修改權利</p>
+        </div>
+    </div>
+</div>
+<hr style="color:#818181; opacity:0.2; ">
+<div class="main" id="unsub">
+  <h2 style="text-align:center;font-size:18pt; border: 0px solid; border-radius: 15px; background-color:#B0C4DE; color:#fff; width:130px;">營區退訂</h2>
+    <p>一個月前退訂：扣除轉帳手續費全額退費</p>
+    <p>14天前退訂：扣除轉帳手續費退百分之五十</p>
+    <p>14天內退訂：無法退費，但會為您保留這筆訂金，轉為他日消費使用</p>
+    <p>＊如遇天災，例如政府公告露營日當天已發佈颱風警報或停止上班上課，也一樣會扣除手續費全額退還訂金哦！</p>
+    <p>＊園區車位有限，僅供露營車友停車用，訪客請在營區外自行尋覓車位。</p>
+</div>
+<hr style="color:#818181; opacity:0.2; ">  
+<div class="main" id="floor">
+  <h2 style="text-align:center;font-size:18pt; border: 0px solid; border-radius: 15px; background-color:#B0C4DE; color:#fff; width:130px;">營區平面圖</h2>
+  <center><img src="http://ecloud.ewang.com.tw/userUpload/images/tomato/map.png" alt="" style="height: 500px; max-width: 100%;"></center>
+</div>
+<hr style="color:#818181; opacity:0.2; ">
+</body>
+</html> 

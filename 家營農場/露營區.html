@@ -1,0 +1,261 @@
+<html>
+<head>
+</head>
+<body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;  
+    }
+    a img {
+        border: none;
+    }
+    #abgne-block-20110406 {
+        margin: 0 auto;
+        width: 780px;	/* 框架圖片的寬 */ /* 632px */ /* 900px */
+        height: 700px;	/* 框架圖片的高 */ /* 438px */
+        position: relative;
+        
+    }
+    #abgne-block-20110406 a.prev, #abgne-block-20110406 a.next {
+        position: absolute;
+        top: 350px;
+        display: block;
+        width: 27px;	/* 左右鈕圖片的寬 */
+        height: 53px;	/* 左右鈕圖片的高 */
+        text-indent: -9999px;
+    }
+    #abgne-block-20110406 .prev {
+        background: url('http://www.lohasplus.com.tw/userUpload/images/tomato/camp/arrow_left.png') no-repeat;
+        background-size: contain;
+    }
+    #abgne-block-20110406 .next {
+        background: url('http://www.lohasplus.com.tw/userUpload/images/tomato/camp/arrow_right.png') no-repeat;
+        right: 0;
+        background-size: contain;
+    }
+    #abgne-block-20110406 .slides {
+        overflow: hidden;
+        position: relative;
+        top: 32px;
+        left: 30px;
+        width: 720px;	/* 框架中間區塊的寬 */ /* 574px */ /* 840px */
+        height: 100%;	/* 框架中間區塊的高 */ /* 376px */
+    }
+    #abgne-block-20110406 .slides ul {
+        position: absolute;
+        width: 9990px;
+	   height: 100%;
+    }
+    #abgne-block-20110406 .slides li {
+        width: 720px;	/* 框架中間區塊的寬 */
+        max-height: 100%;
+        float: left;
+    }
+    h4{
+        font-weight: bold;
+        font-size: 24px;
+    }
+    a,
+    p {
+        font-size: 16px;
+    }
+    li,
+    div {
+        font-family: "微軟正黑體", '標楷體';
+        font-weight: bold;
+    }
+    
+    .nav > li > a{
+        color: #008080;
+    }
+    .nav-pills > li.active > a, .nav-pills > li.active > a:focus {
+        color: #708090;
+        background-color: #F0FFF0;
+    }
+     .nav-pills > li.active > a:hover {
+        background-color: #F0F8FF;
+        color:black;
+    }
+    table {
+        font-size: 18px;
+        font-family: "微軟正黑體", '標楷體';
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        font-family: "微軟正黑體", '標楷體';
+    }
+    body{
+        background-image: url(http://www.lohasplus.com.tw/userUpload/images/tomato/camp/background.jpg);    
+    }
+    </style>
+    
+    <script>
+        $(function(){
+            // 先取得必要的元素並用 jQuery 包裝
+            // 再來取得 $block 的寬度及設定動畫時間
+            var $block = $('#abgne-block-20110406'), 
+                $slides = $block.find('.slides'), 
+                $ul = $slides.find('ul'), 
+                _width = $slides.width(), 
+                _left = _width * -1, 
+                _animateSpeed = 400, 
+                // 加入計時器, 輪播時間及控制開關
+                timer, _showSpeed = 3000, _stop = false;
+
+            // 先把最後一個 li 的內容插入到第一個 li 前面
+            // 並設定 $ul 的 left 及 width
+            $ul.find('li:first').before($ul.find('li:last')).end().css({
+                left: _left,
+                width: _width * ($ul.find('li').length + 1)
+            });
+
+            // 當點擊到 a.prev 時
+            var $prev = $block.find('a.prev').click(function(){
+                // 移動 $ul
+                $ul.stop(false, true).animate({'left' : _left + _width}, _animateSpeed, function () {
+                    // 把最後一個 li 的內容插入到第一個 li 前面
+                    $ul.find('li:first').before($ul.find('li:last')).end().css('left', _left);
+                    // 當移動到正確位置後, 依判斷來啟動計時器
+                    if(!_stop) {
+                        clearTimeout(timer);
+                        timer = setTimeout(move, _showSpeed);
+                    }
+                });
+                return false;
+            });
+
+            // 當點擊到 a.next 時
+            var $next = $block.find('a.next').click(function(){
+                // 移動 $ul
+                $ul.stop(false, true).animate({'left' : _left - _width}, _animateSpeed, function () {
+                    // 把第一個 li 的內容插入到最後一個 li 後面
+                    $ul.find('li:last').after($ul.find('li:first')).end().css('left', _left);
+                    // 當移動到正確位置後, 依判斷來啟動計時器
+                    if(!_stop) {
+                        clearTimeout(timer);
+                        timer = setTimeout(move, _showSpeed);
+                    }
+                });
+                return false;
+            });
+
+            // 如果滑鼠移入 $block 時
+            $block.hover(function(){
+                // 關閉開關及計時器
+                _stop = true;
+                clearTimeout(timer);
+            }, function(){
+                // 如果滑鼠移出 $block 時
+                // 開啟開關及計時器
+                _stop = false;
+                timer = setTimeout(move, _showSpeed);
+            }).find('a').focus(function(){
+                this.blur();
+            });
+
+            // 計時器使用
+            function move(){
+                $next.click();
+            };
+
+            timer = setTimeout(move, _showSpeed);
+        });
+    </script>
+    
+    <img src="http://www.lohasplus.com.tw/userUpload/images/tomato/camp/camparea_cut.jpg" style="max-width: 100%;">
+    <div style="padding: 30px 0;">
+        <ul class="nav nav-pills nav-stacked col-md-2" style="padding: 0 20px;">
+            <img src="http://www.lohasplus.com.tw/userUpload/images/tomato/camp/camp_name.png" style="height: : 50px; max-width: 100%; padding: 10px 0;">
+            <li class="active"><a href="#abgne-block-20110406" data-toggle="pill">園區風光</a></li>
+            <li><a href="#map" data-toggle="pill">營區平面圖</a></li>
+            <li><a href="#profile" data-toggle="pill">收費</a></li>
+            <li><a href="#principle" data-toggle="pill">訂位方式</a></li>
+            <li><a href="#information" data-toggle="pill">營區資訊</a></li>
+            <li><a href="#about" data-toggle="pill">露營公約</a></li>
+        </ul>
+        <div class="tab-content col-md-10">
+            <div class="tab-pane active" id="abgne-block-20110406">
+                <div class="slides">
+                    <ul>
+                        <li><a href="#"><img src="http://www.lohasplus.com.tw/userUpload/images/tomato/camp/camp_scenery.jpg" style="width: 720px; max-height: 100%;" /></a></li>
+                        <li><a href="#"><img src="http://www.lohasplus.com.tw/userUpload/images/tomato/camp/camp_scenery2.jpg" style="width: 720px; max-height: 100%" /></a></li>
+                        <li><a href="#"><img src="http://www.lohasplus.com.tw/userUpload/images/tomato/camp/camp_scenery3.jpg" style="width: 720px; max-height: 100%" /></a></li>
+                        <li><a href="#"><img src="http://www.lohasplus.com.tw/userUpload/images/tomato/camp/camp_scenery4.jpg" style="width: 720px;  max-height: 100%" /></a></li>
+                    </ul>
+                </div>
+                <a href="#" class="prev">&lt;</a>
+                <a href="#" class="next">&gt;</a>
+            </div>
+            
+            <div class="tab-pane" id="map" style="padding: 0 0 30px;">
+                <h4>營區平面圖</h4>
+                <center>
+                <img src="http://www.lohasplus.com.tw/userUpload/images/tomato/camp/map.jpg" style="width: 840px; max-height: 100%;">
+                </center>
+                <br>
+            </div>
+                
+            <div class="tab-pane" id="profile" style="padding: 0 0 30px;">
+                <h4>費用說明</h4>
+                <center><img style="max-width:600px;" src="http://www.lohasplus.com.tw/userUpload/images/tomato/camp/cost.jpg" alt=""></center>
+                <br>
+            </div>
+                
+            <div class="tab-pane" id="principle" style="padding: 0 0 30px;">
+                <h4>進退場時間</h4>
+                <div>
+                    <p>進場：原則上不限制，但天黑後會關門，如果會晚到須提前通知。</p>
+                    <p>退場：原則上不限制，但如果後面有其他客人，表訂為隔天下午12點(需時間場復)。</p>
+                </div>
+                <br>
+                <h4>訂位原則</h4>
+                <div>
+                    <p>訂位時盡量如營友的希望，營主會視團體情況調整，讓同一團體的露友能在一起，包埸以先付訂金者優先排序。</p>
+                    <p>目前以電話訂位或FB網路訂位為主。</p>
+                    <div style="padding:0 0 0 20px;"><p><img src="http://www.lohasplus.com.tw/userUpload/images/tomato/camp/fbicon.png" alt=""><a href="FB：https://www.facebook.com/TienInn/">家營農場露營區</a></p></div>
+                    <div style="display: inline-block; padding:0 0 0 20px;"><p><span class="glyphicon glyphicon-earphone"></span>訂位專線：</p></div>
+                    <div style="display: inline-block; vertical-align:middle; padding: 5px 0;">
+                    <p>強哥(營長): 0921-592-593</p>
+                    <p>農場主人: 0921-592-587</p>
+                    </div>
+                </div>
+                <br>
+                <h4>訂金支付原則</h4>
+                <div>
+                    <p>訂金支付為總價一半，當收到您的訂金後方確認訂位手續完成。</p>
+                    <p>訂金支付：各位露友請務必小心，由於詐騙集團猖獗，園區目前提供的訂金轉入帳戶如下：</p>
+                    <p style="padding:0 20px;"><i class="fa fa-bank"></i>轉入銀行：元大銀行 高雄分行，代號806</p>
+                    <p style="padding:0 20px;"><i class="fa fa-edit"></i>帳號：21102770234826</p>
+                    <p style="font-size: 14px; padding: 0 30px;"><img src="http://www.lohasplus.com.tw/userUpload/images/tomato/triangle.png" style="height: 14px; max-width: 100%;"><b>如果您接到任何電話或是簡訊，以任何理由要求您將錢匯入其他帳戶，必定有異，請勿上當哦！</b></p>
+                </div>
+                <br>
+            </div>
+            
+            <div class="tab-pane" id="information" style="padding: 0 0 30px;">
+                <br>
+                <center><img src="http://www.lohasplus.com.tw/userUpload/images/tomato/camp/camp_imformation.jpg" style="width: 700px; max-height: 100%;"></center>
+                <br>
+            </div>
+            
+            <div class="tab-pane" id="about" style="padding: 0 0 30px;">
+                <h4>家營農場露營區公約</h4>
+                <center><img src="http://www.lohasplus.com.tw/userUpload/images/tomato/camp/paper_text.png" style="height: 850px; max-width: 100%;"></center>
+            </div>
+            
+        </div><!-- tab content -->
+    </div>
+</body>
+</html>
