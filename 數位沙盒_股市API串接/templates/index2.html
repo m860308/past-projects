@@ -1,0 +1,213 @@
+<head>
+    <title>test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/dd8553ba3d.js" crossorigin="anonymous"></script>
+    <style>
+        .container {
+        max-width: 1440px;
+        }
+        .zi_box_right {
+        background-color:#dfefff ;
+        height:560px;
+        border:2.5px dashed #fff ;
+        box-shadow:0 0 0 2px #dfefff ;
+        margin:2em 0 ;
+        padding:15px ;
+        
+        opacity: 0.8;
+        }
+        .zi_box_left {
+        background-color:#FFECEC ;
+        height:560px;
+        border:2.5px dashed #fff ;
+        box-shadow:0 0 0 2px #FFECEC ;
+        margin:2em 0 ;
+        padding:15px ;
+        opacity: 0.8;
+        }
+        a{
+            word-wrap: break-word;
+        }
+        .bg_white{
+            background-color: #fff;
+            width: 100%;
+            padding:20px;
+            text-align:center;
+            letter-spacing:10px;
+        }
+        .content_left{
+            padding: 15px;
+        }
+        .content_right{
+            padding: 15px;
+            overflow-y: auto;
+            height: 450px;
+            margin: 10px 3px;
+        }
+
+        /*-------滾動條整體樣式----*/
+        .content_right::-webkit-scrollbar {
+        width:8px;
+        }
+        /*滾動條裡面小方塊樣式*/
+        .content_right::-webkit-scrollbar-thumb {
+        border-radius:100px;
+        background:rgb(75, 107, 138);
+        }
+        /*滾動條裡面軌道樣式*/
+        .content_right::-webkit-scrollbar-track {
+        border-radius:0;
+        background:rgba(0,0,0,0.1);
+        }
+
+        h5{
+            margin: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container" style="margin-top: 50px;">
+        <div class="row" style="text-align:center;">
+            <div class="col-6" style="text-align: right;"><h4>輸入所要查詢的股票代號：</h4></div>
+            <div class="col-6" style="text-align: left;">
+                <form method="POST">
+                    <input type="text" name="code" style="width: 250px;"/>
+                    <input type="submit" name="search" value="搜尋" style="width: 50px;margin-left: 5px;"/>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- 股票資訊 -->
+            <div class="col-6">
+                <div class="zi_box_left">
+                    <div class="bg_white">
+                        <h5><b>股票資訊</b></h5>
+                    </div>
+                    <div class="content_left">
+                        <div class="row" style="margin: 15px 0;">
+                            <div class="col-6">
+                                <p><strong>股票名稱：</strong> {{zh_tw}}</p>
+                                <p><strong>股票代碼：</strong> {{code}}</p>
+                            </div>
+                            <div class="col-6">
+                                <p><strong>高點：</strong> {{high}}</p>
+                                <p><strong>低點：</strong> {{low}}</p>
+                                <p><strong>開盤點：</strong> {{open}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <p><strong>五檔資料買進：</strong></p>
+                                <div style="padding: 0px 20px;"> 
+                                    <p>{{bids1}}</p>
+                                    <p>{{bids2}}</p>
+                                    <p>{{bids3}}</p>
+                                    <p>{{bids4}}</p>
+                                    <p>{{bids5}}</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <p><strong>五檔資料賣出：</strong></p>
+                                <div style="padding: 0px 20px;">
+                                    <p>{{asks1}}</p>
+                                    <p>{{asks2}}</p>
+                                    <p>{{asks3}}</p>
+                                    <p>{{asks4}}</p>
+                                    <p>{{asks5}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 5px;">
+                            <div style="display: inline-block; margin-left: 5px;">
+                                <span style="color:#ff7e7e;">
+                                    <i class="fas fa-comments-dollar fa-3x"></i>
+                                </span>
+                            </div>
+                            <div style="display:inline-block; margin-left: 15px; max-width: 80%;vertical-align: middle;">
+                                <p style="color: #FF0000; font-size: 18px;">
+                                    <strong>{{recommend}}</strong>
+                                </p>
+                            </div>            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 新聞 -->
+            <div class="col-6">
+                <div class="zi_box_right">
+                    <div class="bg_white">
+                        <h5><b>相關新聞</b></h5>
+                    </div>
+                    <div class="content_right">
+                        <div class="row">
+                            <div class="col-2">
+                                <span style="color: #6d91af;">
+                                    <i class="fas fa-newspaper fa-4x" ></i>
+                                </span>
+                                
+                            </div>
+                            <div class="col-10">
+                                <p><strong>標題： </strong>{{news_title1}}</p>
+                                <p><strong>網址： </strong><a href="{{news_url1}}">{{news_url1}}</a></p>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-2">
+                                <span style="color: #6d91af;">
+                                    <i class="far fa-newspaper fa-4x" ></i>
+                                </span>
+                            </div>
+                            <div class="col-10">
+                                <p><strong>標題： </strong>{{news_title2}}</p>
+                            <p><strong>網址： </strong><a href="{{news_url2}}">{{news_url2}}</a></p>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-2">
+                                <span style="color: #6d91af;">
+                                    <i class="fas fa-newspaper fa-4x" ></i>
+                                </span>
+                                
+                            </div>
+                            <div class="col-10">
+                                <p><strong>標題： </strong>{{news_title3}}</p>
+                            <p><strong>網址： </strong><a href="{{news_url3}}">{{news_url3}}</a></p>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-2">
+                                <span style="color: #6d91af;">
+                                    <i class="far fa-newspaper fa-4x" ></i>
+                                </span>
+                            </div>
+                            <div class="col-10">
+                                <p><strong>標題： </strong>{{news_title4}}</p>
+                                <p><strong>網址： </strong><a href="{{news_url4}}">{{news_url4}}</a></p>
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-2">
+                                <span style="color: #6d91af;">
+                                    <i class="fas fa-newspaper fa-4x" ></i>
+                                </span>
+                                
+                            </div>
+                            <div class="col-10">
+                                <p><strong>標題： </strong>{{news_title5}}</p>
+                                <p><strong>網址： </strong><a href="{{news_url5}}">{{news_url5}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
