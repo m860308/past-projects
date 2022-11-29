@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet"  href="https://use.fontawesome.com/55121c5ec4.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<center>
+		<div style="width:99%; background-color:#FAF0E6; color:#8B4513; font-family:Microsoft JhengHei;">
+			<div style="overflow: auto; padding: 10px;">
+				<div>
+					<img alt="" hspace="20px" src="/userUpload/images/%E6%B8%AC%E8%A9%A6%E7%89%88_resized(1).jpg" style="max-width: 100%; height: auto; text-align: center;" vspace="20px" /></div>
+				<div>
+					<h1 style="text-align: center;">
+						<span style="font-size:22px;"><strong>&lsquo;Avuwan灶咖環境</strong></span></h1>
+					<div style="text-align: center;">
+						<span style="font-size:20px;">&lsquo;Avuwan為卑南族語，原意為「有灰的地方」，</span></div>
+					<div style="text-align: center;">
+						<span style="font-size:20px;">族人們炊煮時在地上放置三顆石頭，在石頭上架鍋烹飪，今引申為「廚房」之意。</span></div>
+					<div style="text-align: center;">
+						&nbsp;</div>
+					<div style="text-align: center;">
+						&nbsp;</div>
+				</div>
+			</div>
+			<div>
+				<div style="overflow:auto; display:inline-block; padding:10px; width:45%; vertical-align:top;">
+					<h2>
+						<span style="font-size:20px;"><strong>灶空間</strong></span></h2>
+					<a href="javascript:;" onclick="document.getElementById('d1').style.display=''" style="text-decoration:none;color:#8B4513"><i class="fa fa-chevron-down fa-2x" aria-hidden="true"></i></a>
+					<div id="d1" style="display: none">
+						<div style="text-align: center;">
+							<span style="font-size:18px;">灶空間的主體建築為104年10月起，由阿美族藝術家希巨‧蘇飛Siki</span></div>
+						<div style="text-align: center;">
+							<span style="font-size:18px;">Sufin帶領臺東縣都蘭、美蘭、三民等部落阿美族人以及學生團隊共同完成。同</span></div>
+						<div style="text-align: center;">
+							<span style="font-size:18px;">時透過與臺東在地秀明農法青農輝哥與文麗夫妻合作，師生共同打造柴燒窯、</span></div>
+						<div style="text-align: center;">
+							<span style="font-size:18px;">火箭爐，並引進魯凱族達魯瑪克部落的石灶。灶空間的理念是提供東大師生親</span></div>
+						<div style="text-align: center;">
+							<span style="font-size:18px;">身體驗部落和社區「飲食有文化，文化在飲食」的學習、活動和勞動場域。</span></div>
+						<div style="text-align: center;">
+							&nbsp;</div>
+						<div style="text-align: center;">
+							&nbsp;</div>
+					</div>
+				</div>
+				<div style="overflow:auto;display:inline-block; padding:10px; width:45%;  vertical-align:top;">
+					<h2 style="text-align: center;">
+						<span style="font-size:20px;"><strong>咖空間</strong></span></h2>
+					<a href="javascript:;" onclick="document.getElementById('d2').style.display=''" style="text-decoration:none;color:#8B4513"><span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span></a>
+					<div id="d2" style="display: none">
+						<div style="text-align: center;">
+							<span style="font-size:18px;">咖空間原為人文學院合作社，空間內部的設計由噶瑪蘭族工藝師(水哥</span></div>
+						<div style="text-align: center;">
+							<span style="font-size:18px;">)以及學校師生共同完成。咖空間為食安教育與公平貿易的推廣場域，同時也是</span></div>
+						<div style="text-align: center;">
+							<span style="font-size:18px;">東大與在地小農、部落、以及弱勢團隊的合作平台。咖空間提供東大師生自然</span></div>
+						<div style="text-align: center;">
+							<span style="font-size:18px;">在地的食物，除了讓學生吃得安心，也傳達出「吃在地，助在地」的精神，落</span></div>
+						<div style="text-align: center;">
+							<span style="font-size:18px;">實大學與地方互助共好的理念。</span></div>
+						<div style="text-align: center;">
+							<span style="font-size:18px;">&nbsp;&nbsp;</span></div>
+						<div style="text-align: center;">
+							&nbsp;</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<p>
+			&nbsp;</p>
+	</center>
+
+</body>
+</html>
